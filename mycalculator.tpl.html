@@ -1,0 +1,16 @@
+input1 <input type="text" 
+            ng-model="$ctrl.input1" 
+            ng-change="$ctrl.onInputChange()">
+<br>
+input2 <input type="text" 
+        ng-model="$ctrl.input2" 
+        ng-change="$ctrl.onInputChange()">
+<div>
+    <div id="result" ng-class="{'calculation-result': $ctrl.isCalculated}">
+        Result is {{result}}
+    </div>
+    <button ng-click="$ctrl.calculate('add')">+</button>
+    <button ng-click="$ctrl.calculate('sub')">-</button>
+    <button ng-click="$ctrl.calculate('mul')">*</button>
+    <button ng-click="$ctrl.calculate('div')">/</button>
+</div>

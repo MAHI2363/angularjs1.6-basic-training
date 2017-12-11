@@ -1,9 +1,20 @@
 var myapp = angular.module('myapp', []);
-myapp.controller('MyCtrl', function($scope){
+
+myapp.component('myCalculator', {
+    templateUrl: 'mycalculator.tpl.html',
+    controller: 'MyCalculatorCtrl'
+});
+
+myapp.controller('MyCalculatorCtrl', function(){
+    this.isCalculated = false;
     
-    $scope.calculate = function(operation){
-        var input1 = parseInt($scope.input1);
-        var input2 = parseInt($scope.input2);
+    this.onInputChange = function(){
+        this.isCalculated = false;
+    };
+    
+    this.calculate = function(operation){
+        var input1 = parseInt(this.input1);
+        var input2 = parseInt(this.input2);
         var result;
         switch(operation) {
             case 'add':
@@ -19,6 +30,11 @@ myapp.controller('MyCtrl', function($scope){
                 result = input1 / input2;
             break;
         }
-        $scope.result = result;
+        this.isCalculated = true;
+        this.result = result;        
     };
+});
+
+myapp.controller('MyCtrl', function($scope){
+    
 });
