@@ -1,33 +1,24 @@
 var myapp = angular.module('myapp', []);
 myapp.controller('MyCtrl', function($scope){
-    $scope.title = "AngularJS training";
-    $scope.age = 10;
-
-    $scope.sayHi = function(){
-        $scope.title = "modified from controller";
-    };
-
-    $scope.students = [
-        {
-            name: 'Arun',
-            department: 'Arts',
-            dob: '19-01-1986'
-        },
-        {
-            name: 'Kishore',
-            department: 'Finance',
-            dob: '20-02-1987'
-        },
-        {
-            name: 'Lily',
-            department: 'Commerce',
-            dob: '25-10-1987'
-        }
-    ];
-
     
-    $scope.onStudentSelect = function(student){
-        $scope.selectedStudent = student;
+    $scope.calculate = function(operation){
+        var input1 = parseInt($scope.input1);
+        var input2 = parseInt($scope.input2);
+        var result;
+        switch(operation) {
+            case 'add':
+                result = input1 + input2;
+            break;
+            case 'sub':
+                result = input1 - input2;
+            break;
+            case 'mul':
+                result = input1 * input2;
+            break;
+            default:
+                result = input1 / input2;
+            break;
+        }
+        $scope.result = result;
     };
-
 });
